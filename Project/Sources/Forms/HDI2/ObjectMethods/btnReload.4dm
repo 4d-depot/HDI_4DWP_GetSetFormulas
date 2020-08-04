@@ -1,0 +1,6 @@
+QUERY:C277([SAMPLES:3];[SAMPLES:3]Title:3=String:C10(FORM Get current page:C276))
+WPArea:=WP New:C1317([SAMPLES:3]WP:2)
+
+
+OBJECT SET VISIBLE:C603(*;"step1@";True:C214)
+OBJECT SET VISIBLE:C603(*;"step2@";False:C215)

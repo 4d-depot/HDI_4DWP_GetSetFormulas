@@ -1,0 +1,734 @@
+﻿{
+	"destination": "detailScreen",
+	"windowMinWidth": 1200,
+	"windowMinHeight": 600,
+	"width": 1200,
+	"height": 800,
+	"menuBar": "Menu Bar #1",
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onPageChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "US Letter",
+		"paperWidth": "612pt",
+		"paperHeight": "792pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"Tab Control": {
+					"type": "tab",
+					"top": 20,
+					"left": 20,
+					"width": 1160,
+					"height": 760,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "TabControl",
+					"dataSourceTypeHint": "arrayText",
+					"labels": [
+						"Info",
+						"WP Get / COMPUTE / FREEZE FORMULAS",
+						"WP SET FORMULA"
+					],
+					"action": "GotoPage",
+					"events": [
+						"onClick"
+					]
+				},
+				"btnTrace": {
+					"type": "checkbox",
+					"top": 740,
+					"left": 1060,
+					"width": 103,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "Form:C1466.trace",
+					"text": "Trace code",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"btnHtml": {
+					"type": "button",
+					"top": 700,
+					"left": 40,
+					"width": 80,
+					"height": 20,
+					"sizingY": "move",
+					"text": "HTML",
+					"focusable": false,
+					"method": "ObjectMethods/btnHtml.4dm",
+					"events": [
+						"onClick"
+					],
+					"visibility": "hidden"
+				},
+				"btnReload": {
+					"type": "button",
+					"top": 700,
+					"left": 430,
+					"width": 80,
+					"height": 20,
+					"sizingX": "fixed",
+					"sizingY": "move",
+					"text": "Reload",
+					"focusable": false,
+					"method": "ObjectMethods/btnReload.4dm",
+					"events": [
+						"onClick"
+					],
+					"visibility": "hidden"
+				},
+				"btnShowHide": {
+					"type": "button",
+					"text": "Show/Hide formulas",
+					"top": 700,
+					"left": 130,
+					"width": 150,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"action": "visibleReferences",
+					"dataSource": "",
+					"focusable": false,
+					"visibility": "hidden",
+					"sizingY": "move"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Button": {
+					"type": "button",
+					"top": 741,
+					"left": 867,
+					"width": 95,
+					"height": 20,
+					"sizingX": "move",
+					"sizingY": "move",
+					"text": "Demo",
+					"focusable": false,
+					"method": "ObjectMethods/Button.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Text10": {
+					"type": "text",
+					"top": 120,
+					"left": 100,
+					"width": 980,
+					"height": 160,
+					"textAlign": "left",
+					"fontFamily": ".SF NS Text",
+					"fontSize": 24,
+					"text": "4D Write Pro Documents can contain formulas to display information about:\r• The document itself (e.g., page numbers),\r• General information (e.g.,current date or time), or\r• Data from the database (e.g., fields, variables, methods).",
+					"sizingX": "fixed",
+					"sizingY": "fixed"
+				},
+				"Text4": {
+					"type": "text",
+					"top": 285,
+					"left": 260,
+					"width": 750,
+					"height": 350,
+					"sizingX": "fixed",
+					"textAlign": "left",
+					"fontFamily": ".SF NS Text",
+					"fontSize": 24,
+					"text": "These formulas can now be set and retreived using two new native commands:\r\r• WP Get formulas\r• WP Insert FORMULA\r\rFormulas can also be updated (recalculated) or frozen (transformed into text) with two new commands:\r\r• WP Compute formulas\r• WP Freeze formulas",
+					"sizingY": "fixed"
+				}
+			}
+		},
+		{
+			"objects": {
+				"WParea": {
+					"type": "write",
+					"top": 70,
+					"left": 40,
+					"width": 470,
+					"height": 610,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "WParea",
+					"hideFocusRing": true,
+					"scrollbarVertical": "automatic",
+					"scrollbarHorizontal": "automatic",
+					"zoom": 75,
+					"showPageFrames": true,
+					"method": "ObjectMethods/WParea.4dm",
+					"events": [
+						"onLoad",
+						"onLosingFocus",
+						"onGettingFocus",
+						"onSelectionChange",
+						"onAfterEdit"
+					],
+					"showVerticalRuler": false,
+					"spellcheck": false
+				},
+				"Text5": {
+					"type": "text",
+					"top": 70,
+					"left": 540,
+					"width": 620,
+					"height": 100,
+					"sizingX": "move",
+					"fontWeight": "bold",
+					"text": "This document contains formulas everywhere… in the body, the headers, the footers… and even within anchored or inline pictures.\r\rFind and manipulate them them using the new commands !"
+				},
+				"List Box": {
+					"type": "listbox",
+					"left": 540,
+					"top": 420,
+					"width": 610,
+					"height": 260,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"dataSource": "Form:C1466.formulas",
+					"sizingY": "grow",
+					"sizingX": "move",
+					"listboxType": "collection",
+					"currentItemSource": "Form:C1466.currentExpression",
+					"resizingMode": "legacy",
+					"scrollbarHorizontal": "hidden",
+					"rowHeight": "20px",
+					"headerHeight": "21px",
+					"columns": [
+						{
+							"header": {
+								"text": "formula.source",
+								"name": "Header1"
+							},
+							"name": "Column1",
+							"footer": {
+								"name": "Footer1"
+							},
+							"width": 190,
+							"dataSource": "This:C1470.formula.source",
+							"minWidth": 100
+						},
+						{
+							"header": {
+								"name": "Header2",
+								"text": ".start"
+							},
+							"name": "Column2",
+							"width": 60,
+							"minWidth": 60,
+							"maxWidth": 60,
+							"resizable": false,
+							"footer": {
+								"name": "Footer2"
+							},
+							"dataSource": "This:C1470.range.start",
+							"stroke": "automatic",
+							"textAlign": "center"
+						},
+						{
+							"header": {
+								"name": "Header5",
+								"text": ".end"
+							},
+							"name": "Column5",
+							"width": 60,
+							"minWidth": 60,
+							"maxWidth": 60,
+							"resizable": false,
+							"footer": {
+								"name": "Footer5"
+							},
+							"dataSource": "This:C1470.range.end",
+							"stroke": "automatic",
+							"textAlign": "center"
+						},
+						{
+							"header": {
+								"name": "Header3",
+								"text": ".anchoredID",
+								"stroke": "automatic"
+							},
+							"name": "Column3",
+							"width": 100,
+							"minWidth": 60,
+							"maxWidth": 100,
+							"resizable": true,
+							"footer": {
+								"name": "Footer3"
+							},
+							"dataSource": "This:C1470.anchoredID",
+							"stroke": "automatic",
+							"textAlign": "center"
+						},
+						{
+							"header": {
+								"name": "Header6",
+								"text": "range.container.styleSheet"
+							},
+							"name": "Column6",
+							"width": 200,
+							"dataSource": "This:C1470.range.container.styleSheet",
+							"footer": {
+								"name": "Footer6"
+							}
+						}
+					]
+				},
+				"Button8": {
+					"type": "button",
+					"text": "Get all header expressions  :-)))",
+					"top": 408,
+					"left": 1978,
+					"width": 254,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button8.4dm",
+					"focusable": false,
+					"sizingX": "fixed"
+				},
+				"Button9": {
+					"type": "button",
+					"text": "Get S1",
+					"top": 377,
+					"left": 1978,
+					"width": 68,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button9.4dm",
+					"focusable": false,
+					"sizingX": "fixed"
+				},
+				"Button10": {
+					"type": "button",
+					"text": "Get S2",
+					"top": 377,
+					"left": 2052,
+					"width": 68,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button10.4dm",
+					"focusable": false,
+					"sizingX": "fixed"
+				},
+				"Button11": {
+					"type": "button",
+					"text": "Get S3",
+					"top": 377,
+					"left": 2124,
+					"width": 68,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button11.4dm",
+					"focusable": false,
+					"sizingX": "fixed"
+				},
+				"Button12": {
+					"type": "button",
+					"text": "Get S4",
+					"top": 377,
+					"left": 2197,
+					"width": 68,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button12.4dm",
+					"focusable": false,
+					"sizingX": "fixed"
+				},
+				"Button13": {
+					"type": "button",
+					"text": "Get all footer expressions  :-)))",
+					"top": 438,
+					"left": 1978,
+					"width": 254,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button13.4dm",
+					"focusable": false,
+					"sizingX": "fixed"
+				},
+				"Button14": {
+					"type": "button",
+					"text": "Get anchored pict expressions :-)))",
+					"top": 489,
+					"left": 1978,
+					"width": 325,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button14.4dm",
+					"focusable": false,
+					"sizingX": "fixed"
+				},
+				"Button15": {
+					"type": "button",
+					"text": "Get inline pict expressions :-(((",
+					"top": 521,
+					"left": 1978,
+					"width": 325,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button15.4dm",
+					"focusable": false,
+					"sizingX": "fixed"
+				},
+				"Text": {
+					"type": "text",
+					"text": "Select target:",
+					"top": 205,
+					"left": 579,
+					"width": 128,
+					"height": 16,
+					"textAlign": "right",
+					"fontTheme": "normal",
+					"sizingX": "move"
+				},
+				"Popup Dropdown List": {
+					"type": "dropdown",
+					"left": 715,
+					"top": 203,
+					"width": 260,
+					"height": 23,
+					"events": [
+						"onDataChange"
+					],
+					"dataSource": "_target",
+					"method": "ObjectMethods/Popup Dropdown List.4dm",
+					"focusable": false,
+					"sizingX": "move"
+				},
+				"Button16": {
+					"type": "button",
+					"text": "Get formulas",
+					"top": 256,
+					"left": 715,
+					"width": 260,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button16.4dm",
+					"focusable": false,
+					"sizingX": "move"
+				},
+				"Button17": {
+					"type": "button",
+					"text": "Compute formulas",
+					"top": 306,
+					"left": 715,
+					"width": 260,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button17.4dm",
+					"focusable": false,
+					"sizingX": "move"
+				},
+				"Button18": {
+					"type": "button",
+					"text": "Freeze formulas",
+					"top": 356,
+					"left": 715,
+					"width": 260,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button18.4dm",
+					"focusable": false,
+					"sizingX": "move"
+				},
+				"step1a1": {
+					"type": "picture",
+					"top": 199,
+					"left": 540,
+					"width": 30,
+					"height": 30,
+					"picture": "/RESOURCES/Images/ArrowRight.gif",
+					"pictureFormat": "scaled",
+					"class": "",
+					"sizingX": "move"
+				},
+				"step2c": {
+					"type": "picture",
+					"top": 299,
+					"left": 540,
+					"width": 30,
+					"height": 30,
+					"picture": "/RESOURCES/Images/ArrowRight.gif",
+					"pictureFormat": "scaled",
+					"class": "",
+					"sizingX": "move"
+				},
+				"step1b1": {
+					"type": "picture",
+					"top": 697,
+					"left": 540,
+					"width": 30,
+					"height": 30,
+					"picture": "/RESOURCES/Images/ArrowLeft.gif",
+					"pictureFormat": "scaled",
+					"class": "",
+					"sizingY": "move",
+					"sizingX": "move"
+				},
+				"Line": {
+					"type": "line",
+					"top": 250,
+					"left": 680,
+					"width": 0,
+					"height": 130,
+					"stroke": "#ff6347",
+					"strokeWidth": 4,
+					"startPoint": "topLeft",
+					"sizingX": "move"
+				},
+				"btnEditFormula": {
+					"type": "button",
+					"text": "Edit formula",
+					"top": 741,
+					"left": 41,
+					"width": 240,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"action": "visibleReferences",
+					"dataSource": "",
+					"focusable": false,
+					"visibility": "visible",
+					"sizingY": "move",
+					"method": "ObjectMethods/btnEditFormula.4dm"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Step2a": {
+					"type": "picture",
+					"top": 415,
+					"left": 834,
+					"width": 30,
+					"height": 30,
+					"picture": "/RESOURCES/Images/ArrowLeft.gif",
+					"pictureFormat": "scaled",
+					"class": "",
+					"sizingX": "move"
+				},
+				"Group Box1": {
+					"type": "groupBox",
+					"text": "Replace by…",
+					"top": 140,
+					"left": 820,
+					"width": 340,
+					"height": 220,
+					"sizingX": "move"
+				},
+				"Group Box": {
+					"type": "groupBox",
+					"text": "Existing…",
+					"top": 140,
+					"left": 532,
+					"width": 250,
+					"height": 220,
+					"sizingX": "move"
+				},
+				"WParea1": {
+					"type": "write",
+					"top": 70,
+					"left": 40,
+					"width": 470,
+					"height": 610,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "WParea",
+					"hideFocusRing": true,
+					"scrollbarVertical": "automatic",
+					"scrollbarHorizontal": "automatic",
+					"zoom": 75,
+					"showPageFrames": true,
+					"method": "ObjectMethods/WParea1.4dm",
+					"events": [
+						"onLoad",
+						"onLosingFocus",
+						"onGettingFocus",
+						"onSelectionChange",
+						"onAfterEdit"
+					],
+					"showVerticalRuler": false
+				},
+				"Text1": {
+					"type": "text",
+					"top": 180,
+					"left": 550,
+					"width": 230,
+					"height": 167,
+					"sizingX": "move",
+					"fontWeight": "bold",
+					"text": "[CUSTOMERS]Name+\" \"+[CUSTOMERS]Firstname\r\rCurrent date\r\rString(Current time)\r\rRandom\r\rPi\r"
+				},
+				"Button19": {
+					"type": "button",
+					"text": "Get formulas",
+					"top": 420,
+					"left": 540,
+					"width": 260,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button19.4dm",
+					"sizingX": "move",
+					"focusable": false
+				},
+				"List Box1": {
+					"type": "listbox",
+					"left": 540,
+					"top": 460,
+					"width": 620,
+					"height": 220,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"dataSource": "Form:C1466.formulas",
+					"sizingY": "grow",
+					"sizingX": "move",
+					"listboxType": "collection",
+					"currentItemSource": "Form:C1466.currentExpression",
+					"headerHeight": "21px",
+					"rowHeight": "20px",
+					"columns": [
+						{
+							"header": {
+								"text": "Formulas",
+								"name": "Header4"
+							},
+							"name": "Column4",
+							"footer": {
+								"name": "Footer4"
+							},
+							"width": 600,
+							"dataSource": "This:C1470.formula.source",
+							"minWidth": 100
+						}
+					]
+				},
+				"Button20": {
+					"type": "button",
+					"text": "Replace formulas",
+					"top": 420,
+					"left": 900,
+					"width": 260,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button20.4dm",
+					"sizingX": "move",
+					"focusable": false
+				},
+				"Text2": {
+					"type": "text",
+					"top": 180,
+					"left": 840,
+					"width": 310,
+					"height": 177,
+					"sizingX": "move",
+					"fontWeight": "bold",
+					"text": "GetFullAdress\r\r\rString(Current date;System date long)\r\rString(Current time;HH MM AM PM)\r\rString(1000+Random;\"|big\")\r\rString(Pi;\"|dec\")\r"
+				},
+				"step1b": {
+					"type": "picture",
+					"top": 415,
+					"left": 835,
+					"width": 30,
+					"height": 30,
+					"picture": "/RESOURCES/Images/ArrowRight.gif",
+					"pictureFormat": "scaled",
+					"class": "",
+					"sizingX": "move"
+				},
+				"step1a": {
+					"type": "picture",
+					"top": 374,
+					"left": 642,
+					"width": 30,
+					"height": 30,
+					"picture": "/RESOURCES/Images/ArrowDown.gif",
+					"pictureFormat": "scaled",
+					"sizingX": "move"
+				},
+				"step2b": {
+					"type": "picture",
+					"top": 697,
+					"left": 540,
+					"width": 30,
+					"height": 30,
+					"picture": "/RESOURCES/Images/ArrowLeft.gif",
+					"pictureFormat": "scaled",
+					"class": "",
+					"sizingY": "move",
+					"sizingX": "move"
+				},
+				"Text3": {
+					"type": "text",
+					"top": 70,
+					"left": 530,
+					"width": 640,
+					"height": 50,
+					"sizingX": "move",
+					"fontWeight": "bold",
+					"text": "In this document, we want to transform the following formulas (no matter their location)."
+				},
+				"décor": {
+					"type": "picture",
+					"top": 247,
+					"left": 789,
+					"width": 20,
+					"height": 20,
+					"picture": "/RESOURCES/Images/Arrow_Right.png",
+					"pictureFormat": "truncatedTopLeft",
+					"class": "",
+					"sizingX": "move"
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
+}

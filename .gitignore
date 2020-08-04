@@ -1,0 +1,43 @@
+#--------------------------------
+# Ignore invisible files/folders
+#--------------------------------
+.*
+!.git*
+.git/
+
+#--------------------------------
+# Ignore data file
+#--------------------------------
+*.journal
+*.4DIndx
+*.Match
+
+#--------------------------------
+# Ignore derived data
+#--------------------------------
+Project/DerivedData/
+
+#--------------------------------
+# Ignore logs
+#--------------------------------
+Logs/
+
+#--------------------------------
+# Ignore settings & preferences
+#--------------------------------
+userPreferences.*/
+Settings/
+
+#--------------------------------
+# Miscellaneous
+#--------------------------------
+*__Orphan__*
+*symbols.txt
+ehthumbs.db
+Thumbs.db
+
+#--------------------------------
+# Added by user
+#--------------------------------
+Resources/php.ini
+Project/Trash/

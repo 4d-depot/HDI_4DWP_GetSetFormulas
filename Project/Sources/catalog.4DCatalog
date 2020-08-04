@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="" uuid="89D3E6F80FA9EA408A0E251A8569EC50" collation_locale="fr">
+	<schema name="DEFAULT_SCHEMA"/>
+	<table name="(Person)" uuid="FBBDC96593D94B38AB14C39DC216761A" id="1" hide_in_REST="true">
+		<field name="ID" uuid="B268C085BD58477B94C0F1F1693D0ECE" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="OB_Field" uuid="D1DF4559DEF94E3785DE64C7BDB7A6AA" type="21" never_null="true" id="2"/>
+		<primary_key field_name="ID" field_uuid="B268C085BD58477B94C0F1F1693D0ECE"/>
+		<table_extra trashed="true" input_form="(Input)" output_form="(Output)">
+			<editor_table_info displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="73.91015625" top="40.39453125" width="120" height="167.33203125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="CUSTOMERS" uuid="391559C51468411F991EB326C2C049CD" id="2">
+		<field name="ID" uuid="277DF7126698480DA77725B79B4FA8DF" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="Name" uuid="ECDF2E32A2084028A1D0FEFBE5F94D31" type="10" limiting_length="255" never_null="true" id="2"/>
+		<field name="Firstname" uuid="621CBA962EB244DF8C6476A4FC40A677" type="10" limiting_length="255" never_null="true" id="3"/>
+		<field name="Address" uuid="309296B7D2D346CC9116B18F634291D8" type="10" limiting_length="255" never_null="true" id="4"/>
+		<field name="ZipCode" uuid="322507E79E754376B507C4D034E6C1EF" type="10" limiting_length="255" never_null="true" id="5"/>
+		<field name="City" uuid="433177831E7A46B39A0AB2F77F788A2A" type="10" limiting_length="255" never_null="true" id="6"/>
+		<field name="Country" uuid="85180646AF334F55A7A490742A0732FC" type="10" limiting_length="255" never_null="true" id="7"/>
+		<primary_key field_name="ID" field_uuid="277DF7126698480DA77725B79B4FA8DF"/>
+		<table_extra output_form="Form1" input_form="Form2">
+			<editor_table_info displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="286.01171875" top="30.33203125" width="120" height="167.33203125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="SAMPLES" uuid="373049FBC27B4679BB600FC556A05850" id="3">
+		<field name="ID" uuid="A6E58BB01FF1407482262079B5A1922D" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="WP" uuid="35C07DCBFEBB4747A3C229B95F85D5EE" type="21" blob_switch_size="2147483647" never_null="true" id="2"/>
+		<field name="Title" uuid="268369E166BD408AB141D4E0A5233CF1" type="10" limiting_length="255" never_null="true" id="3"/>
+		<primary_key field_name="ID" field_uuid="A6E58BB01FF1407482262079B5A1922D"/>
+		<table_extra input_form="Input" output_form="List">
+			<editor_table_info displayable_fields_count="5">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="35.16015625" top="9.5234375" width="133.53515625" height="162.7578125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<index kind="regular" unique_keys="true" uuid="36DB253C7002437B8EF3A2BF4120B161" type="7">
+		<field_ref uuid="B268C085BD58477B94C0F1F1693D0ECE" name="ID">
+			<table_ref uuid="FBBDC96593D94B38AB14C39DC216761A" name="(Person)"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="99B7D0295AC3495B8440BFA33FF687DB" type="7">
+		<field_ref uuid="277DF7126698480DA77725B79B4FA8DF" name="ID">
+			<table_ref uuid="391559C51468411F991EB326C2C049CD" name="CUSTOMERS"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="9F0A7D5AE4AC4E49B1DB241459A71A43" type="7">
+		<field_ref uuid="A6E58BB01FF1407482262079B5A1922D" name="ID">
+			<table_ref uuid="373049FBC27B4679BB600FC556A05850" name="SAMPLES"/>
+		</field_ref>
+	</index>
+	<base_extra data_file_path=":HowDoI.4DD" package_name="HDI_4DWP_AutoFitHeaders" structure_file_name="HowDoI" __stringCompHash="icu:63.1.0" __keywordBuildingHash="icu:63.1.0">
+		<journal_file journal_file_enabled="false"/>
+	</base_extra>
+</base>
